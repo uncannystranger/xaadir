@@ -10,3 +10,5 @@
 - Existing login/README pull requests are outside this diff. Production publication remains separate.
 
 Final screenshot inspection found clipped phone attendance choices in the pre-existing wide register. At <=700px, the register now stacks student identity above four visible status choices; filters wrap. The skip link uses clipping until focused to avoid a full-page capture/compositor artifact from an offscreen transform. Screenshots and checks were refreshed after this correction.
+
+20 October: draft success feedback is set only after localStorage confirms a write; storage failures retain marks and show an alert. Pending submissions also retain the confirmation dialog on Escape. Hosted admin demo sign-in and dashboard inspected.
