@@ -88,3 +88,17 @@
 .passwordDialog input { width:100%; min-height:44px; padding:10px; border:1px solid var(--border); border-radius:9px; }
 .passwordDialog > button { min-height:44px; border:0; background:var(--bg-subtle); border-radius:9px; }
 @media(pointer:coarse),(max-width:800px) { .rowActions button { min-width:44px; min-height:44px; } }
+
+/* Awwwards form-fill reference: visible progression, quiet selection feedback. */
+.teacherSteps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; }
+.teacherSteps li { border-top:3px solid var(--border); padding-top:9px; transition:border-color 180ms var(--ease),color 180ms var(--ease); }
+.teacherSteps li[data-complete="true"] { border-color:var(--green-700); }
+.teacherSteps [aria-current="step"] { border-color:var(--brand); }
+.table th { font-size:10px; }
+.table td { font-size:12px; }
+.table strong { font-size:12px; }
+.muted { font-size:10px; }
+.choiceCard { transition:background 160ms var(--ease),border-color 160ms var(--ease); }
+.notice { animation:notice-arrive 180ms var(--ease) both; }
+@keyframes notice-arrive { from { opacity:.3; transform:translateY(4px); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce) { .notice { animation:none; } .teacherSteps li,.choiceCard { transition:none; } }

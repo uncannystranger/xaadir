@@ -139,11 +139,11 @@ export function FormSection({ title, detail, children }: { title: string; detail
 
 export function OperationNotice({ state }: { state?: { ok: boolean; message: string } | null }) {
   if (!state?.message.trim()) return null;
-  return <div className={`${styles.notice} ${state.ok ? styles.noticeSuccess : styles.noticeError}`}>{state.ok ? <CheckCircle2 /> : <AlertCircle />}{state.message}</div>;
+  return <div role={state.ok ? "status" : "alert"} aria-atomic="true" className={`${styles.notice} ${state.ok ? styles.noticeSuccess : styles.noticeError}`}>{state.ok ? <CheckCircle2 /> : <AlertCircle />}{state.message}</div>;
 }
 
 export function LoadingState({ label = "Loading school records" }: { label?: string }) {
-  return <div className={styles.loadingState}><LoaderCircle /> <span>{label}</span></div>;
+  return <div className={styles.loadingState} role="status"><LoaderCircle aria-hidden="true" /> <span>{label}</span></div>;
 }
 
 export function formatDate(value: string) {

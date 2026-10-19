@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Header } from "@/components/dashboard/Header";
 import type { UserRole } from "@/lib/models";
@@ -8,6 +9,7 @@ import { mockActors, useXaadirData } from "@/components/providers/XaadirDataProv
 import { useAuth } from "@/components/providers/AuthProvider";
 
 export function AppShell({ role, children }: { role: UserRole; children: React.ReactNode }) {
+  const pathname = usePathname();
   const [drawer, setDrawer] = useState(false);
   const isAdmin = role === "ADMIN";
   const { state, setActor } = useXaadirData(); const { session } = useAuth();
@@ -25,10 +27,11 @@ export function AppShell({ role, children }: { role: UserRole; children: React.R
   }, []);
   const currentTeacher = state.teachers.find((teacher) => teacher.id === session?.teacherId); const admin = state.adminProfile;
   return <div className={`dashboard-shell app-shell role-${role.toLowerCase()}`} data-app-root>
+    <a className="workspace-skip" href="#workspace-content">Skip to workspace</a>
     <Sidebar role={role} open={drawer} onClose={() => setDrawer(false)} />
     <div className="main-column">
       <Header onMenu={() => setDrawer(true)} teacher={!isAdmin} profileImage={currentTeacher?.profileImage ?? (isAdmin ? admin.profileImage : undefined)} name={currentTeacher?.fullName ?? (isAdmin ? admin.fullName : session?.name ?? "Xaadir")} email={isAdmin ? admin.email : session?.email ?? ""} />
-      <main className="teacher-main">{children}</main>
+      <main className="teacher-main" id="workspace-content" tabIndex={-1}><div className="workspace-view" key={pathname}>{children}</div></main>
     </div>
   </div>;
 }

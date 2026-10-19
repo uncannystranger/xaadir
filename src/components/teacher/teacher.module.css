@@ -53,3 +53,12 @@
 .pageStack > *,.attendancePage > * { min-width:0; }
 .reportControls { min-width:0; max-width:100%; }
 .reportControls input,.reportControls select { width:min(240px,100%); min-width:0; min-height:44px; padding:8px 12px; border:1px solid var(--border); border-radius:12px; }
+
+.attendanceProgress { display:grid; gap:8px; color:var(--text-secondary); font-size:12px; }
+.attendanceProgress > div { height:5px; overflow:hidden; border-radius:99px; background:var(--border); }
+.attendanceProgress i { display:block; height:100%; background:var(--brand); transform-origin:left; transition:transform 180ms var(--ease); }
+.segmented button { min-height:40px; transition:background 140ms var(--ease),box-shadow 140ms var(--ease); }
+.segmented button:focus-visible { outline:2px solid var(--brand); outline-offset:3px; z-index:1; }
+.attendanceRow:focus-within { background:var(--bg-subtle); }
+.stickySubmit { padding-bottom:calc(12px + env(safe-area-inset-bottom)); }
+@media (prefers-reduced-motion:reduce) { .attendanceProgress i,.segmented button { transition:none; } }

@@ -32,6 +32,7 @@ export function Sidebar({ role, open, onClose }: { role: UserRole; open: boolean
     <button className={`drawer-scrim ${open ? "is-open" : ""}`} aria-label="Close menu" onClick={onClose} />
     <aside ref={drawer} tabIndex={-1} role={open ? "dialog" : undefined} aria-modal={open ? true : undefined} className={`sidebar ${open ? "is-open" : ""}`} aria-label={`${role === "ADMIN" ? "Administrator" : "Teacher"} navigation`}>
       <Link prefetch={false} href={role === "ADMIN" ? "/admin" : "/teacher"} className="brand" onClick={onClose}><XaadirLogo /></Link>
+      <p className="workspace-role">{role === "ADMIN" ? "School administration" : "Teacher workspace"}</p>
       <nav className="nav-groups">
         <p className="nav-caption">MENU</p>
         <div className="nav-list">{renderLinks(primary)}</div>
