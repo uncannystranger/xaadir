@@ -102,3 +102,19 @@
 .notice { animation:notice-arrive 180ms var(--ease) both; }
 @keyframes notice-arrive { from { opacity:.3; transform:translateY(4px); } to { opacity:1; transform:none; } }
 @media (prefers-reduced-motion:reduce) { .notice { animation:none; } .teacherSteps li,.choiceCard { transition:none; } }
+
+/* Zenarate: editorial hierarchy and framed modular content, adapted to registers. */
+.pageHeader { padding:4px 0 16px; border-bottom:1px solid var(--border); }
+.pageHeader h1,.attendanceHeader h1 { font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:clamp(31px,3.3vw,49px); letter-spacing:-.045em; line-height:1.12; }
+.pageHeader p { margin-top:12px; line-height:1.7; font-size:12px; max-width:65ch; }
+.panel { border-radius:16px; box-shadow:none; }
+.primaryButton,.secondaryButton { border-radius:9px; min-height:44px; }
+.primaryButton svg,.inlineButton svg { transition:transform 200ms var(--ease); }
+.primaryButton:hover svg,.inlineButton:hover svg { transform:translateX(3px); }
+@media(max-width:700px) { .pageHeader { padding-bottom:19px;gap:18px; }.pageHeader h1,.attendanceHeader h1 { font-size:34px; }.pageHeader p { font-size:11px; } }
+@media(prefers-reduced-motion:reduce) { .primaryButton svg,.inlineButton svg { transition:none;transform:none!important; } }
+
+.summaryGrid { gap:0;border:1px solid var(--border);border-radius:14px;background:var(--bg-surface);overflow:hidden; }.summaryCard { border:0;border-right:1px solid var(--border);border-radius:0;box-shadow:none;min-height:155px;padding:22px; }.summaryCard:last-child { border-right:0; }.summaryCard > strong { font-size:46px;font-variant-numeric:tabular-nums; }.summaryCard > small { font-size:10px;line-height:1.6; }.summaryAccent { background:var(--green-soft);color:var(--text-primary); }.summaryAccent .summaryTop svg,.summaryAccent small { color:var(--text-secondary); }
+.entityCard { border-radius:16px;box-shadow:none;transition:transform 240ms var(--ease),border-color 240ms; }.entityCard:hover { transform:translateY(-3px);border-color:var(--brand); }.entityCard h3 { font-family:Georgia,serif;font-size:27px;font-weight:400; }
+@media(max-width:700px) { .summaryCard:nth-child(2) { border-right:0; }.summaryCard:nth-child(-n+2) { border-bottom:1px solid var(--border); }.summaryCard { min-height:138px;padding:17px; }.summaryCard > strong { font-size:37px; } }
+@media(prefers-reduced-motion:reduce) { .entityCard { transition:none;transform:none!important; } }

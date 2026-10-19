@@ -185,3 +185,30 @@ textarea:focus-visible { outline:3px solid var(--brand); outline-offset:2px; }
 .nav-list a svg { transition:transform 160ms var(--ease); }
 .nav-list a:focus-visible { outline:2px solid var(--brand); outline-offset:3px; }
 @media (prefers-reduced-motion:reduce) { .workspace-view { animation:none; } .nav-list a svg { transition:none; transform:none!important; } }
+
+/* Awwwards technology study: Zenarate. An editorial school workspace with
+   generous framing and clearly separated work surfaces; see storyboard. */
+.app-shell { --radius:16px; --canvas:#f5f5ef; --border:#dce3da; --sidebar-bg:#102d24; --header-bg:var(--canvas); }
+html[data-theme="dark"] .app-shell { --canvas:#111d17; --border:#35483c; --sidebar-bg:#0c211a; }
+.app-shell .sidebar { border-right:1px solid #ffffff10; padding-top:34px; }
+.app-shell .sidebar .brand { color:#f2f7ee; }
+.app-shell .sidebar .workspace-role { color:#b9cfc1; padding-bottom:23px; border-bottom:1px solid #ffffff20; line-height:1.7; }
+.app-shell .sidebar .nav-caption { color:#9eb9a9; font-size:9px; letter-spacing:.14em; }
+.app-shell .sidebar .nav-list a { min-height:47px; color:#bfd0c5; font-size:12px; border-radius:9px; gap:13px; }
+.app-shell .sidebar .nav-list a:hover { color:#fff; background:#ffffff0d; }
+.app-shell .sidebar .nav-list a.active { background:#d9edbd; color:#173125; }
+.app-shell .sidebar .nav-list a.active svg { color:#173125; }
+.app-shell .sidebar .active-indicator { display:none; }
+.app-shell .nav-list svg { width:18px; height:18px; }
+.app-shell .topbar { border-bottom:1px solid var(--border); min-height:88px; }
+.app-shell .search-control { border:1px solid var(--border); background:var(--bg-surface); border-radius:10px; }
+.app-shell .teacher-main { padding-top:0; }
+.school-masthead { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:21px 0 25px; color:var(--text-secondary); font-size:10px; letter-spacing:.01em; }
+.school-masthead i { font-style:normal; margin:0 12px; color:var(--text-muted); }.school-masthead strong { text-transform:capitalize; font-weight:500; color:var(--text-primary); }.school-year { display:flex;gap:10px; }.school-year b { font-weight:500; color:var(--text-primary); }
+.app-shell .workspace-view { animation:school-page-arrive 400ms var(--ease) both; }
+.app-shell .dashboard-intro h1 { font-family:Georgia,serif; font-weight:400; letter-spacing:-.04em; }
+.app-shell button:focus-visible,.app-shell a:focus-visible { outline:2px solid var(--brand); outline-offset:4px; }
+@keyframes school-page-arrive { from { opacity:0;transform:translateY(10px);filter:blur(2px); } to { opacity:1;transform:none;filter:blur(0); } }
+@media(max-width:800px) { .app-shell .topbar { min-height:78px; }.school-masthead { padding:18px 0 23px; line-height:1.6; }.school-year { font-size:9px; }.app-shell .sidebar { padding-top:25px; } }
+@media(max-width:390px) { .school-masthead > span:first-child { max-width:100%; }.school-masthead i { margin-inline:6px; } }
+@media(prefers-reduced-motion:reduce) { .app-shell .workspace-view { animation:none; } }
