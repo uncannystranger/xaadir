@@ -62,3 +62,15 @@
 .attendanceRow:focus-within { background:var(--bg-subtle); }
 .stickySubmit { padding-bottom:calc(12px + env(safe-area-inset-bottom)); }
 @media (prefers-reduced-motion:reduce) { .attendanceProgress i,.segmented button { transition:none; } }
+
+/* Keep every attendance choice visible on phones instead of clipping a wide register. */
+@media(max-width:700px) {
+  .register { max-height:none; overflow:visible; }
+  .registerHeader { display:none; }
+  .attendanceRow { grid-template-columns:28px minmax(0,1fr); min-width:0; padding:12px; gap:0 8px; }
+  .rowNumber, .studentIdentity { position:static; height:auto; padding:0; }
+  .segmented { grid-column:1/-1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:2px; width:100%; margin:10px 0 0; }
+  .segmented button { min-width:0; min-height:44px; padding:6px 2px; font-size:10px; }
+  .filterBar { flex-wrap:wrap; overflow:visible; }
+  .filterBar button { font-size:10px; min-height:36px; }
+}

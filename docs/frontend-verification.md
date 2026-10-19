@@ -8,3 +8,5 @@
 - Lockfile repaired after npm ci rejected stale transitive resolutions; package.json unchanged. npm reports 11 pre-existing audit findings; dependency security remediation is separate.
 - Local demo data only; external integrations and real school accounts not exercised. No backend, authentication contract or stored-data schema changes.
 - Existing login/README pull requests are outside this diff. Production publication remains separate.
+
+Final screenshot inspection found clipped phone attendance choices in the pre-existing wide register. At <=700px, the register now stacks student identity above four visible status choices; filters wrap. The skip link uses clipping until focused to avoid a full-page capture/compositor artifact from an offscreen transform. Screenshots and checks were refreshed after this correction.

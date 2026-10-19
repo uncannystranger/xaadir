@@ -12,3 +12,5 @@ Mobile: retain the drawer, large touch targets and sticky attendance actions; re
 Attendance: show marked/total progress without animating numeric values. Support arrow-key selection within each student status group. Show saving state, keep the confirmation open on failure, and prevent repeated submissions while a save is pending.
 
 No authentication, repository model, persistence or permissions changes. Existing open PRs concern README and public login information; those files are excluded from the presentation pass. The lockfile needs an indirect dependency repair for npm ci.
+
+Phone register refinement: student identity sits above four equal status choices, all visible at 320px; filters wrap. Desktop retains the dense row register. This adapts the same Envato form hierarchy and Bodak form-fill references.

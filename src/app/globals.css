@@ -175,8 +175,8 @@ textarea:focus-visible { outline:3px solid var(--brand); outline-offset:2px; }
 }
 
 /* Awwwards: Envato form hierarchy; Eduard Bodak navigation micro-animation. */
-.workspace-skip { position:fixed; z-index:200; left:16px; top:12px; padding:12px 18px; border-radius:12px; background:var(--bg-surface); color:var(--text-primary); transform:translateY(-160%); }
-.workspace-skip:focus { transform:none; outline:3px solid var(--brand); }
+.workspace-skip { position:fixed; z-index:200; left:16px; top:12px; width:1px; height:1px; padding:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border-radius:12px; background:var(--bg-surface); color:var(--text-primary); }
+.workspace-skip:focus { width:auto; height:auto; padding:12px 18px; overflow:visible; clip-path:none; white-space:normal; outline:3px solid var(--brand); }
 .workspace-role { margin:16px 8px 0; font-size:10px; letter-spacing:.04em; color:var(--text-secondary); }
 .workspace-view { min-width:0; animation:workspace-arrive 220ms var(--ease) both; }
 #workspace-content:focus { outline:none; }
