@@ -49,7 +49,7 @@ export function TeacherDashboard({
           <h1>Good morning, {firstName(model.teacher.fullName)}</h1>
           <p>Here is your teaching day at a glance.</p>
         </div>
-        <time className={styles.datePill} dateTime="2026-09-12">Saturday, 12 September</time>
+        <time className={styles.datePill} dateTime={new Date().toISOString().slice(0,10)}>{new Intl.DateTimeFormat("en", { weekday:"long", day:"numeric", month:"long" }).format(new Date())}</time>
       </header>
 
       <section className={styles.metricGrid} aria-label="Today’s overview">

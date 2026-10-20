@@ -53,3 +53,48 @@
 .pageStack > *,.attendancePage > * { min-width:0; }
 .reportControls { min-width:0; max-width:100%; }
 .reportControls input,.reportControls select { width:min(240px,100%); min-width:0; min-height:44px; padding:8px 12px; border:1px solid var(--border); border-radius:12px; }
+
+.attendanceProgress { display:grid; gap:8px; color:var(--text-secondary); font-size:12px; }
+.attendanceProgress > div { height:5px; overflow:hidden; border-radius:99px; background:var(--border); }
+.attendanceProgress i { display:block; height:100%; background:var(--brand); transform-origin:left; transition:transform 180ms var(--ease); }
+.segmented button { min-height:40px; transition:background 140ms var(--ease),box-shadow 140ms var(--ease); }
+.segmented button:focus-visible { outline:2px solid var(--brand); outline-offset:3px; z-index:1; }
+.attendanceRow:focus-within { background:var(--bg-subtle); }
+.stickySubmit { padding-bottom:calc(12px + env(safe-area-inset-bottom)); }
+@media (prefers-reduced-motion:reduce) { .attendanceProgress i,.segmented button { transition:none; } }
+
+/* Keep every attendance choice visible on phones instead of clipping a wide register. */
+@media(max-width:700px) {
+  .register { max-height:none; overflow:visible; }
+  .registerHeader { display:none; }
+  .attendanceRow { grid-template-columns:28px minmax(0,1fr); min-width:0; padding:12px; gap:0 8px; }
+  .rowNumber, .studentIdentity { position:static; height:auto; padding:0; }
+  .segmented { grid-column:1/-1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:2px; width:100%; margin:10px 0 0; }
+  .segmented button { min-width:0; min-height:44px; padding:6px 2px; font-size:10px; }
+  .filterBar { flex-wrap:wrap; overflow:visible; }
+  .filterBar button { font-size:10px; min-height:36px; }
+}
+
+/* Zenarate: editorial hierarchy and framed modular content, adapted to registers. */
+.pageHeader { padding:4px 0 16px; border-bottom:1px solid var(--border); }
+.pageHeader h1,.attendanceHeader h1 { font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:clamp(31px,3.3vw,49px); letter-spacing:-.045em; line-height:1.12; }
+.pageHeader p { margin-top:12px; line-height:1.7; font-size:12px; max-width:65ch; }
+.panel { border-radius:16px; box-shadow:none; }
+.primaryButton,.secondaryButton { border-radius:9px; min-height:44px; }
+.primaryButton svg,.inlineButton svg { transition:transform 200ms var(--ease); }
+.primaryButton:hover svg,.inlineButton:hover svg { transform:translateX(3px); }
+@media(max-width:700px) { .pageHeader { padding-bottom:19px;gap:18px; }.pageHeader h1,.attendanceHeader h1 { font-size:34px; }.pageHeader p { font-size:11px; } }
+@media(prefers-reduced-motion:reduce) { .primaryButton svg,.inlineButton svg { transition:none;transform:none!important; } }
+
+.metricGrid { gap:0; overflow:hidden; border:1px solid var(--border); border-radius:14px; background:var(--bg-surface); }
+.metric { border:0; border-radius:0; border-right:1px solid var(--border); min-height:160px; padding:23px; }
+.metric:last-child { border-right:0; }.metric > span { color:var(--text-secondary); font-size:11px; }.metric > strong { font-size:48px; margin-top:20px; font-variant-numeric:tabular-nums; }.metric > small { font-size:10px;line-height:1.6; }
+.metricFeatured { background:var(--green-soft);color:var(--text-primary); }.metricFeatured > small { color:var(--text-secondary); }
+.nextClass { background:var(--bg-surface); position:relative; border-left:4px solid var(--brand); }
+.classHero > strong { font-family:Georgia,serif; font-size:53px; font-weight:400; }
+.classCard { position:relative; overflow:hidden; border-radius:16px; padding:26px; transition:transform 240ms var(--ease),border-color 240ms; }
+.classCard:hover { transform:translateY(-4px);border-color:var(--brand); }.classMonogram { border-radius:10px; }.classCard h2 { font-family:Georgia,serif;font-size:32px; }.classCard .inlineButton { border-top:1px solid var(--border); padding-top:18px; width:100%;justify-content:space-between; }
+.schoolWeekStrip { padding:5px; border:1px solid var(--border);background:var(--bg-surface);border-radius:12px;gap:5px; }.schoolWeekStrip button { border-radius:8px; }.schoolWeekStrip .selectedDay { background:var(--green-900);color:#fff; }.selectedDay span { color:inherit; }
+.register { border-radius:14px; }.registerHeader { font-size:9px;letter-spacing:.08em; }.studentIdentity strong { font-size:13px; }.attendanceProgress { padding:16px 18px;background:var(--bg-surface);border:1px solid var(--border);border-radius:12px; }
+@media(max-width:700px) { .metric { min-height:140px;padding:18px; }.metric:nth-child(2) { border-right:0; }.metric:nth-child(-n+2) { border-bottom:1px solid var(--border); }.metric > strong { font-size:39px; }.classHero > strong { font-size:43px; } }
+@media(prefers-reduced-motion:reduce) { .classCard { transition:none;transform:none!important; } }
