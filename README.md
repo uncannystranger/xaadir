@@ -1,3 +1,5 @@
+> **Latest release: v0.2.0** — [Release notes](RELEASE-NOTES.md) · [GitHub release](https://github.com/uncannystranger/xaadir/releases/tag/v0.2.0)
+
 <p align="center"><img src=".github/assets/xaadir-hero.svg" alt="Xaadir — Digital School Attendance, made familiar." width="100%"></p>
 
 <p align="center"><strong>Digital attendance that feels familiar.</strong><br>Xaadir turns paper-based school attendance into a connected workspace for administrators and teachers.</p>
